@@ -13,7 +13,7 @@
 
 Route::get('/', 'TasksController@index');
 
-Route::resource('tasks', 'TasksController');
+// Route::resource('tasks', 'TasksController');
 
 // Route::get('tasks/{id}', 'TasksController@show');
 // Route::post('tasks', 'TasksController@store');
@@ -36,7 +36,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 // ユーザ機能
 Route::group(['middleware' => ['auth']], function () {
-Route::get('/', 'TasksController@index');
-Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
-Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy']]);
+    Route::resource('tasks', 'TasksController');
+    // Route::get('/', 'TasksController@index');
+    // Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    // Route::resource('tasks', 'TasksController', ['only' => ['store', 'destroy']]);
 });
